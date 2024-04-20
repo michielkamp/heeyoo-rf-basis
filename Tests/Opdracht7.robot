@@ -6,24 +6,29 @@ Test Setup  Open RF Demo Site  ${URL2}
 
 *** Test Cases ***
 Handle alert box
-    [Tags]  Alert
+    [Tags]  7A  Alert
+    ${promise}  Promise To  Wait For Alert  action=accept
     Click  id=alertPopup
-    Sleep  5s
+    ${text}  Wait For  ${promise}
+    Should Be Equal  ${text}  Hallo!
 
 Klik de disabled knop
-    [Tags]  Disabled
+    [Tags]  7B  Disabled
     ${original}  Set Retry Assertions For  0:00:05
     Wait For Elements State  id=slowToEnable  enabled
     Click  id=slowToEnable
     Set Retry Assertions For  ${original}
+    Get Text  id=slowEnableResult  ==  Button clicked!
 
 Start het flaky process
-    [Tags]  Flaky
+    [Tags]  7C  Flaky
+    ${original}  Set Retry Assertions For  0:00:05
     Wait Until Keyword Succeeds  5x  1s  Start process
+    Set Retry Assertions For  ${original}
 
 
 *** Keywords ***
 Start process
     Click  id=flakyProcess
-    Get Text  css=h1  equals  Process started
+    Get Text  css=h1  ==  Process started
 
