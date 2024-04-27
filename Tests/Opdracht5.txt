@@ -1,0 +1,14 @@
+# Schrijf resultaten weg naar een map "Results"
+robot -d Results Tests\Opdracht2.robot
+
+# Voeg een timestamp toe aan de log files
+robot -T tests\Opdracht2.robot
+
+# Voer alleen tests met de tag "Happy" uit
+robot -d Results -i Happy Tests\Opdracht2.robot
+
+# Voer tests met de tag "Happy" niet uit
+robot -d Results -e Happy Tests\Opdracht2.robot
+
+# Voer tests met de tag "Happy" wel uit maar die met de tag "Xpath" niet
+robot -d Results -i Happy -e Xpath Tests\Opdracht2.robot

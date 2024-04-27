@@ -5,10 +5,15 @@ Test Setup  Open SwagLabs  ${URL}
 
 
 *** Test Cases ***
-Doe een bestelling
-    Log in    ${USER}    ${PASS}
-    Add to cart  Sauce Labs Backpack   1
-    Validate orders in cart   Sauce Labs Backpack
-    Close cart
-    Add to cart  Sauce Labs Bolt T-Shirt   2
-    Validate orders in cart   Sauce Labs Backpack   Sauce Labs Bolt T-Shirt
+Login Test by ID
+    Log in      ${USER}  ${PASS}
+    Validate logged in
+
+Login Fail
+    Log in      ${USER}  ${WRONG_PASS}
+    Validate login error
+
+
+*** Keywords ***
+Start test
+    Log     Logging in with "${USER}"
