@@ -1,7 +1,7 @@
 *** Settings ***
 Resource    ../../Resources/Data.resource
 Resource    ../../Resources/SwagLabs.resource
-Library     DataDriver
+Library     DataDriver  ./Testdata.csv
 Test Setup  Open SwagLabs  ${URL}
 Test Template  Data-driven login tests
 
