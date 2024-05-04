@@ -1,5 +1,5 @@
 *** Settings ***
-Library     Browser  enable_presenter_mode={"duration": "1 seconds", "width": "2px", "style": "dotted", "color": "blue"}
+Library     Browser   enable_presenter_mode={"duration": "1 seconds", "width": "2px", "style": "dotted", "color": "blue"}
 
 # Complicated Xpath locator: //div[@class="inventory_item_description" and contains(.,"${item_name}")]//button
 
@@ -16,6 +16,10 @@ Log in
     Fill Text    id=user-name  ${user}
     Fill Text    id=password  ${pass}
     Click        id=login-button
+
+Log out
+    Click  id=react-burger-menu-btn
+    Click  id=logout_sidebar_link
 
 Add to cart
     [Arguments]  ${item_name}  ${expected_count}
@@ -47,4 +51,5 @@ Validate logged in
     Get Url     ==  https://www.saucedemo.com/inventory.html
 
 Validate login error
-    Get Text    h3[data-test="error"]  ==  Epic sadface: Username and password do not match any user in this service
+    [Arguments]  ${expected_error}=Epic sadface: Username and password do not match any user in this service
+    Get Text    h3[data-test="error"]  ==  ${expected_error}
