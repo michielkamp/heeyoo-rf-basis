@@ -4,7 +4,7 @@ ${PASS}  	    secret_sauce
 ${WRONG_PASS}  	wrong_password
 ${URL}		    https://www.saucedemo.com/
 ${URL2}         https://michielkamp.github.io/heeyoo-rf-basis-demosite/
-${URL3}         https://en.wikipedia.org/wiki/Main_Page
+${URL3}         https://en.wikipedia.org/wiki/
 
 ${DOWNLOAD_ROOT}  C:/Users/Michiel/Downloads/
 ${BASE_URL}     https://jsonplaceholder.typicode.com/

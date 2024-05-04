@@ -30,5 +30,5 @@ Start het flaky process
 *** Keywords ***
 Start process
     Click  id=flakyProcess
-    Get Text  css=h1  ==  Process started
+    Get Text  css=h1  ==  Process started!!
 
