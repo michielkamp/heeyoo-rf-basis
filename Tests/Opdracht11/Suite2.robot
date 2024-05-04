@@ -13,6 +13,7 @@ Login with ${user}
 *** Keywords ***
 Data-driven login tests
     [Arguments]  ${user}  ${pass}  ${expected_error}
+    [Tags]  11D
     Log in  ${user}  ${pass}
     IF  '${expected_error}'!='${EMPTY}'
         Validate login error  ${expected_error}
