@@ -1,5 +1,6 @@
 *** Settings ***
 Resource  Variabelen.resource
+Test Tags  3A  3C
 
 
 *** Variables ***
@@ -14,6 +15,7 @@ Test case 1 suite 1
     User keyword
 
 Test case 2 suite 1
+    [Tags]  3B
     User keyword
 
 

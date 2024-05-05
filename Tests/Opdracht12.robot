@@ -9,7 +9,7 @@ Test Setup  Open Wikipedia  ${URL3}
 
 *** Test Cases ***
 Search Wikipedia
-    [Tags]  11A  Wikipedia zoeken
+    [Tags]  12A  Wikipedia zoeken
     [Setup]  Open Wikipedia   ${URL3}Main_Page
     Fill Text  id=searchInput  Robot Framework
     Click      xpath=//button[text()="Search"]      # Alternatief:  css=[class*=cdx-search-input__end-button]
@@ -18,14 +18,14 @@ Search Wikipedia
     ...        Robot Framework is a generic test automation framework for acceptance testing and acceptance test-driven development (ATDD). It is a keyword-driven testing framework that uses tabular test data syntax.
 
 Download article
-    [Tags]  11B  Download
+    [Tags]  12B  Download
     [Setup]  Open Wikipedia    ${URL3}Robot_Framework
     ${filename}  Download article
     Should Be Equal     ${filename}  Robot_Framework.pdf
     [Teardown]  Remove File   ${DOWNLOAD_ROOT}/Robot_Framework.pdf
 
 Validate PDF
-    [Tags]  11C  Validate_download
+    [Tags]  12C  Validate_download
     [Setup]  Open Wikipedia    https://en.wikipedia.org/wiki/Robot_Framework
     ${filename}  Download article
     Validate PDF  ${filename}
