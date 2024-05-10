@@ -4,6 +4,7 @@ Test Setup  Open SwagLabs
 
 
 *** Variables ***
+# 4B
 ${USER}  	standard_user
 ${PASS}  	secret_sauce
 ${WRONG_PASS}  	wrong_password
@@ -12,6 +13,7 @@ ${URL}		https://www.saucedemo.com/
 
 *** Test Cases ***
 Login Test by ID
+    [Tags]  4A
     ${url}  Log in  ${USER}  ${PASS}
     Should Be Equal  ${url}  https://www.saucedemo.com/inventory.html
 
@@ -24,7 +26,7 @@ Login Fail
 Open SwagLabs
     New Browser  chromium  headless=false
     New Page     ${URL}
-    Log  	 Logging in with "${USER}"
+    Log  	 Logging in with "${USER}"  # 4C
 
 Log in
     [Arguments]  ${user}  ${pass}
