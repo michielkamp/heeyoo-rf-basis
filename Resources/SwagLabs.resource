@@ -1,4 +1,5 @@
 *** Settings ***
+Resource    ../Resources/Data.resource
 Library     Browser    enable_presenter_mode={"duration": "1 seconds", "width": "2px", "style": "dotted", "color": "blue"}
 
 # Complicated Xpath locator: //div[@class="inventory_item_description" and contains(.,"${item_name}")]//button
