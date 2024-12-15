@@ -1,6 +1,7 @@
 *** Settings ***
 Resource    ../Resources/Data.resource
 Library     Browser    enable_presenter_mode={"duration": "1 seconds", "width": "2px", "style": "dotted", "color": "blue"}
+Library     String
 
 # Complicated Xpath locator: //div[@class="inventory_item_description" and contains(.,"${item_name}")]//button
 
@@ -22,24 +23,34 @@ Log out
     Click  id=react-burger-menu-btn
     Click  id=logout_sidebar_link
 
-Add to cart
+Add to cart v1
+    Click                 id=add-to-cart-sauce-labs-backpack
+
+
+Add to cart v2
     [Arguments]  ${item_name}  ${expected_count}
-    Click        css=div.inventory_item_description >> text="${item_name}"
-    Get Url      contains   https://www.saucedemo.com/inventory-item.html
-    Click        id=add-to-cart
-    Get Text     span.shopping_cart_badge  ==  ${expected_count}
+    Click                 id=add-to-cart-${item_name}
+    Get Element Count     id=remove-${item_name}  ==  1
+    Get Text              span.shopping_cart_badge  ==  ${expected_count}
+
+Add to cart v3
+    [Arguments]  ${item_name}  ${expected_count}
+    ${item_name}        Convert to lowercase   ${item_name}
+    ${item_name}        Replace String      ${item_name}  ${SPACE}  -
+    Click               id=add-to-cart-${item_name}
+    Get Element Count   id=remove-${item_name}  ==  1
+    Get Text             span.shopping_cart_badge  ==  ${expected_count}
 
 Open cart
-    Click    id=shopping_cart_container
-    Get Url  ==  https://www.saucedemo.com/cart.html
+    Click       id=shopping_cart_container
+    Get Url     ==  https://www.saucedemo.com/cart.html
 
 Close cart
-    Click  id=continue-shopping
+    Click       id=continue-shopping
     Get Url     ==  https://www.saucedemo.com/inventory.html
 
 Validate orders in cart
     [Arguments]  @{item_names}
-    Open cart
     ${elements}  Get Elements   div.inventory_item_name
     ${count}  Get Length    ${elements}
     FOR  ${i}  IN RANGE  0  ${count}-1
