@@ -1,5 +1,4 @@
 *** Settings ***
-Resource    ../Resources/Data.resource
 Resource    ../Resources/SwagLabs.resource
 Test Setup  Open SwagLabs  ${URL}
 
@@ -7,7 +6,7 @@ Test Setup  Open SwagLabs  ${URL}
 *** Test Cases ***
 Login Test by ID
     Log in      ${USER}  ${PASS}
-    Validate logged in
+    Validate logged in   https://www.saucedemo.com/inventory.html
 
 Login Fail
     Log in      ${USER}  ${WRONG_PASS}

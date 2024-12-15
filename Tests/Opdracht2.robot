@@ -31,9 +31,9 @@ Login Test by Xpath
 
 Login Test by Text
     [Tags]  2A  Happy
-    Fill Text  //input[@data-test="username"]  standard_user
-    Fill Text  //input[@data-test="password"]  secret_sauce
-    Click      "Login"
+    Fill Text  xpath=//input[@data-test="username"]  standard_user
+    Fill Text  xpath=//input[@data-test="password"]  secret_sauce
+    Click      text="Login"
     Get Url  ==  https://www.saucedemo.com/inventory.html
 
 Login Fail

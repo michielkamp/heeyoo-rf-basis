@@ -1,5 +1,5 @@
 *** Settings ***
-Library     Browser  enable_presenter_mode={"duration": "1 seconds", "width": "2px", "style": "dotted", "color": "blue"}
+Library     Browser   enable_presenter_mode={"duration": "1 seconds", "width": "2px", "style": "dotted", "color": "blue"}
 Test Setup  Open SwagLabs
 Test Tags   1E
 

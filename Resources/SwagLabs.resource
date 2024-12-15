@@ -24,7 +24,7 @@ Log out
 Add to cart
     [Arguments]  ${item_name}  ${expected_count}
     Click        css=div.inventory_item_description >> text="${item_name}"
-    Get Url     contains   https://www.saucedemo.com/inventory-item.html
+    Get Url      contains   https://www.saucedemo.com/inventory-item.html
     Click        id=add-to-cart
     Get Text     span.shopping_cart_badge  ==  ${expected_count}
 
@@ -46,7 +46,8 @@ Validate orders in cart
     END
 
 Validate logged in
-    Get Url     ==  https://www.saucedemo.com/inventory.html
+    [Arguments]  ${expected}
+    Get Url     ==   ${expected}
 
 Validate login error
     [Arguments]  ${expected_error}=Epic sadface: Username and password do not match any user in this service

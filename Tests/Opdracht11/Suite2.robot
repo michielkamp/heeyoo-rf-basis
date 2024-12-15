@@ -18,7 +18,7 @@ Data-driven login tests
     IF  '${expected_error}'!='${EMPTY}'
         Validate login error  ${expected_error}
     ELSE
-        Validate logged in
+        Validate logged in  https://www.saucedemo.com/inventory.html
         Log out
     END
     [Teardown]  Run Keyword If  '${KEYWORD_STATUS}'=='FAIL'  Reset

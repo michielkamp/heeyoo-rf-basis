@@ -20,7 +20,7 @@ Login Test
 
 *** Keywords ***
 Open SwagLabs
-    Open Browser  https://www.saucedemo.com/  chrome  options=add_argument('--headless')
+    Open Browser  https://www.saucedemo.com/  chrome  #options=add_argument('--headless')
 
 Close SwagLabs
     Delete All Cookies

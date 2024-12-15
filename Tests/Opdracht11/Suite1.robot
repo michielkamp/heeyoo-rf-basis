@@ -31,13 +31,13 @@ Login happy flow 2.0
 Log in happy
     [Arguments]  ${user}  ${pass}
     Log in  ${user}  ${pass}
-    Validate logged in
+    Validate logged in   https://www.saucedemo.com/inventory.html
     [Teardown]  Log out
 
 Log in happy with automatic reset
     [Arguments]  ${user}  ${pass}
     Log in  ${user}  ${pass}
-    Validate logged in
+    Validate logged in   https://www.saucedemo.com/inventory.html
     [Teardown]  Run Keyword If  '${KEYWORD_STATUS}'=='FAIL'  Reset  ELSE  Log out
 
 Log in failure
