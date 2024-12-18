@@ -3,6 +3,7 @@ Resource    ../Resources/Data.resource
 Resource    ../Resources/RFDemoSite.resource
 Test Setup  Open RF Demo Site  ${URL2}
 
+Library    Telnet
 
 *** Test Cases ***
 Handle alert box
@@ -14,17 +15,15 @@ Handle alert box
 
 Klik de disabled knop
     [Tags]  8B  Disabled
-    ${original}  Set Retry Assertions For  0:00:05
-    Wait For Elements State  id=slowToEnable  enabled
+    Wait For Elements State  id=slowToEnable  enabled  15 seconds
+#    ${original}  Set Browser Timeout    15s
+#    Log To Console    ${original}
     Click  id=slowToEnable
-    Set Retry Assertions For  ${original}
     Get Text  id=slowEnableResult   ==    Button clicked!
 
 Start het flaky process
     [Tags]  8C  Flaky
-    ${original}  Set Retry Assertions For  0:00:05
     Wait Until Keyword Succeeds  5x  1s  Start process
-    Set Retry Assertions For  ${original}
 
 
 *** Keywords ***

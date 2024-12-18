@@ -26,12 +26,12 @@ Log out
 Add to cart v1
     Click                 id=add-to-cart-sauce-labs-backpack
 
-
 Add to cart v2
     [Arguments]  ${item_name}  ${expected_count}
     Click                 id=add-to-cart-${item_name}
     Get Element Count     id=remove-${item_name}  ==  1
     Get Text              span.shopping_cart_badge  ==  ${expected_count}
+
 
 Add to cart v3
     [Arguments]  ${item_name}  ${expected_count}
@@ -40,6 +40,7 @@ Add to cart v3
     Click               id=add-to-cart-${item_name}
     Get Element Count   id=remove-${item_name}  ==  1
     Get Text             span.shopping_cart_badge  ==  ${expected_count}
+
 
 Open cart
     Click       id=shopping_cart_container

@@ -7,20 +7,20 @@ Test Template   Log in happy
 
 *** Test Cases ***
 Login happy flow
-    [Tags]  11A
+    [Tags]  11B
     standard_user   secret_sauce
     problem_user  secret_sauce
     visual_user  secret_sauce
 
 Login failure flow
-    [Tags]  11B
+    [Tags]  11C
     [Template]  Log in failure
     standard_user    wrong_pass     Epic sadface: Username and password do not match any user in this service
     wrong_user       secret_sauce   Epic sadface: Username and password do not match any user in this service
     locked_out_user  secret_sauce   Epic sadface: Sorry, this user has been locked out.
 
 Login happy flow 2.0
-    [Tags]  11C
+    [Tags]  11D
     [Template]  Log in happy with automatic reset
     standard_user   secret_sauce
     problem_user  wrong_pass
