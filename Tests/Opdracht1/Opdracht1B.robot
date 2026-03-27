@@ -1,6 +1,7 @@
 *** Settings ***
 Library     Browser
 
+
 *** Test Cases ***
 Opdracht1B
     New Browser     chromium    headless=false

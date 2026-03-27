@@ -1,10 +1,10 @@
 *** Settings ***
 Library     Browser
+Test Setup  Open Swag Labs
 
 
 *** Test Cases ***
 Opdracht1C
-    [Setup]  Open Swag Labs
     Get Title   ==  Swag Labs
     Inloggen
     Get Url     ==  https://www.saucedemo.com/inventory.html
