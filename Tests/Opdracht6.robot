@@ -6,10 +6,10 @@ Test Setup  Open SwagLabs  ${URL}
 *** Test Cases ***
 Login Test by ID
     Log in      ${USER}  ${PASS}
-    Validate logged in   https://www.saucedemo.com/inventory.html
+    Validate logged in   ${URL}/inventory.html
 
 Login Fail
-    Log in      ${USER}  ${WRONG_PASS}
+    Log in    ${USER}  ${WRONG_PASS}
     Validate login error
 
 
