@@ -32,7 +32,6 @@ Add to cart v2
     Get Element Count     id=remove-${item_name}  ==  1
     Get Text              span.shopping_cart_badge  ==  ${expected_count}
 
-
 Add to cart v3
     [Arguments]  ${item_name}  ${expected_count}
     ${item_name}        Convert to lowercase   ${item_name}
@@ -41,7 +40,6 @@ Add to cart v3
     Get Element Count   id=remove-${item_name}  ==  1
     Get Text             span.shopping_cart_badge  ==  ${expected_count}
 
-
 Open cart
     Click       id=shopping_cart_container
     Get Url     ==  https://www.saucedemo.com/cart.html
@@ -49,6 +47,17 @@ Open cart
 Close cart
     Click       id=continue-shopping
     Get Url     ==  https://www.saucedemo.com/inventory.html
+
+Checkout
+    [Arguments]   ${naw}
+    Click        id=checkout
+    Fill Text    id=first-name    ${naw}[voornaam]
+    Fill Text    id=last-name     ${naw}[naam]
+    Fill Text    id=postal-code   ${naw}[postcode]
+    Click        id=continue
+    Click        id=finish
+    Get Text     h2    ==    Thank you for your order!
+    Get Url      ==   ${URL}checkout-complete.html
 
 Validate orders in cart
     [Arguments]  @{item_names}
@@ -65,3 +74,6 @@ Validate logged in
 Validate login error
     [Arguments]  ${expected_error}=Epic sadface: Username and password do not match any user in this service
     Get Text    h3[data-test="error"]  ==  ${expected_error}
+
+Set order state
+    LocalStorage Set Item  cart-contents  [4,1]

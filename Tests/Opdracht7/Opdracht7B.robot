@@ -5,11 +5,11 @@ Test Setup  Open SwagLabs  ${URL}
 
 
 *** Variables ***
-@{list}   Sauce Labs Backpack    Sauce Labs Bolt T-Shirt
+&{naw}    naam=Kamp    voornaam=Michiel    postcode=5501JB
 
 
 *** Test Cases ***
-Maak een bestelling
+Voeg toe aan winkelmand en plaats bestelling
     Log in    ${USER}    ${PASS}
     Add to cart v3  Sauce Labs Backpack  1
     Open cart
@@ -17,5 +17,5 @@ Maak een bestelling
     Close cart
     Add to cart v3  Sauce Labs Bolt T-Shirt  2
     Open cart
-    Validate orders in cart   @{list}
-    Close cart
+    Validate orders in cart   Sauce Labs Backpack    Sauce Labs Bolt T-Shirt
+    Checkout  ${naw}
